@@ -9,6 +9,12 @@ munin_node_allowed_ips:
   - '^127\.0\.0\.1$'
   - '^::1$'
 
+# Default path for the node configuration file
+munin_node_conf_path: /etc/munin/munin-node.conf
+
+# Directory in which Munin plugin configuration resides
+munin_plugin_conf_dir: /etc/munin/plugin-conf.d
+
 # Source and destination of munin plugins.
 munin_plugin_src_path: /usr/share/munin/plugins/
 munin_plugin_dest_path: /etc/munin/plugins/

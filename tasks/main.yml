@@ -10,21 +10,25 @@
   apt: name=munin-node state=present
   when: ansible_os_family == 'Debian'
 
+- name: Ensure munin-node is installed (FreeBSD).
+  pkgng: name=munin-node state=present
+  when: ansible_os_family == 'FreeBSD' and ansible_distribution_major_version|int >= 10
+
 - name: Copy munin-node configuration.
   template:
     src: munin-node.conf.j2
-    dest: /etc/munin/munin-node.conf
+    dest: "{{ munin_node_conf_path }}"
     owner: root
-    group: root
+    group: "{{ root_group_name }}"
     mode: 0644
   notify: restart munin-node
 
 - name: Generate plugin configuration.
   template:
     src: plugin-conf.j2
-    dest: /etc/munin/plugin-conf.d/ansible.conf
+    dest: "{{ munin_plugin_conf_dir }}/ansible.conf"
     owner: root
-    group: root
+    group: "{{ root_group_name }}"
     mode: 0644
   notify: restart munin-node
 

@@ -1,0 +1,8 @@
+---
+munin_node_conf_path: /usr/local/etc/munin/munin-node.conf
+munin_node_log: /var/log/munin/munin-node.log
+munin_node_pid: /var/run/munin/munin-node.pid
+munin_plugin_conf_dir: /usr/local/etc/munin/plugin-conf.d
+munin_plugin_dest_path: /usr/local/etc/munin/plugins/
+munin_plugin_src_path: /usr/local/share/munin/plugins/
+root_group_name: wheel
